@@ -30,7 +30,7 @@ function App() {
 
     setTimeout(() => {
       setAlert(null);
-    }, 3000);
+    }, 1500);
   }
 
 
@@ -52,7 +52,7 @@ function App() {
 
         {/* <NavBar page="My Site" title="Home" about={msg}/> */}
 
-        <NavBar page="My Site" title="Home" about='About Us' mode={mode} toggleMode={toggleMode} />
+        <NavBar page="Text Utilizer" title="Home" about='About Us' mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
