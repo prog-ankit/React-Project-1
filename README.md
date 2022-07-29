@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This Project has various Functionalities like Text UpperCase, LowerCase, Copy with dark mode and some about us information. 
+
+Copyright by Ankit Bose.
+
 ## Available Scripts
 
 In the project directory, you can run:
