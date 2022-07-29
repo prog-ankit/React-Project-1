@@ -3,8 +3,6 @@ export default function TextArea(props) {
     let name = 'Ankit Bose';
     const [text, setText] = useState("");
     const ChangeText = (event) => {
-        //console.log("Text Changed");
-
         setText(event.target.value);
     }
     const UpperClick = () => {
@@ -21,9 +19,7 @@ export default function TextArea(props) {
     }
     const copyText = () => {
         //console.log("Button Clicked");
-        var box = document.getElementById('myarea');
-        box.select();
-        navigator.clipboard.writeText(box.value);
+        navigator.clipboard.writeText(text);
         props.showalert('Text Copied', 'danger');
     }
     const clearBox = () => {
@@ -54,15 +50,15 @@ export default function TextArea(props) {
                     <label style={{color : props.mode==='light'?'#010a5e':'white'}} htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
                     <textarea className="form-control" id="myarea" style={{color : props.mode==='light'?'#010a5e':'white', backgroundColor : props.mode==='dark'?'#010a5e':'white'}} onChange={ChangeText} rows="8" value={text}></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary mx-1" onClick={UpperClick}>Convert to UpperCase</button>
-                <button type="submit" className="btn btn-primary mx-2" onClick={LowerClick}>Convert to LowerCase</button>
-                <button type="submit" className="btn btn-primary mx-2" onClick={copyText}>Copy Text</button>
-                <button type="submit" className="btn btn-primary mx-2" onClick={clearBox}>Clear Text</button>
+                <button type="submit" disabled={text.length <= 0} className="btn btn-primary mx-2 my-2" onClick={UpperClick}>Convert to UpperCase</button>
+                <button type="submit" disabled={text.length <= 0} className="btn btn-primary mx-2 my-2" onClick={LowerClick}>Convert to LowerCase</button>
+                <button type="submit" disabled={text.length <= 0} className="btn btn-primary mx-2 my-2" onClick={copyText}>Copy Text</button>
+                <button type="submit" disabled={text.length <= 0} className="btn btn-primary mx-2 my-2" onClick={clearBox}>Clear Text</button>
                 
             </div>
             <div className="container my-2" style={{color : props.mode==='light'?'#010a5e':'white'}}>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
+                <p>{text.split(/\s+ /).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
                 <p>{0.08 * text.split(" ").length} Minuted to Read</p>
             </div>
             <div className="container my-2" style={{color : props.mode==='light'?'#010a5e':'white'}}>
